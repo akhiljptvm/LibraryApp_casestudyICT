@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/author.css">
+    <link rel="stylesheet" href="/css/Addauthor.css">
+    <!-- bootstrap -->
+    
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="/css/styles.css" rel="stylesheet">
+	</head>
+	<body background="/images/glenn2.jpg">
+
+<!-- new nav -->
+<nav>
+  <div class="logo">
+      <img src="/images/Ybin.gif"  alt="Logo Image">
+      <a href="/"><h1 class="libhead">Library App</h1></a>
+  </div>
+  <div class="hamburger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+  </div>
+  
+  <ul class="nav-links">
+    <!-- <li ><a href="/" class="login-button">Home</a></li> -->
+    <li><a href="/adminlogin/add" class="login-button"><%=nav[0].name%></a></li>
+    <li ><a href="<%=nav[3].link%>" class="join-button"><%=nav[3].name%></a></li>
+    <li ><a href="/adminlogin/addauthor" class="login-button"><%=nav[4].name%></a></li>
+    <li ><a href="<%=nav[5].link%>" class="login-button"><%=nav[5].name%></a></li>
+    <li ><a href="<%=nav[8].link%>" class="login-button"><%=nav[8].name%></a></li>
+   
+      
+      <!-- <li><a href=""></a></li> -->
+      <!-- <li><a href="#">Solutions</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact Us</a></li> -->
+      <!-- <li><a class="login-button" href="<%=nav[1].link%>"><%=nav[1].name%></a></li>
+      <li><a class="join-button" href="#">Signup</a></li> -->
+  </ul>
+  
+</nav>
+<!-- new nav end -->
+
+
+
+<div id="masthead" class="p-1">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Update Book
+          <p class="lead"></p>
+        </h1>
+      </div>
+      <div class="col-md-5">
+        <div class=""> 
+          <div class="row">
+            <div class="col-sm-12">
+              
+			
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+  
+  
+</div>
+
+
+       <form action="/adminlogin/updateB/<%=book._id%>"  id="form" onsubmit="return validate()" method="post"  style="height: 60rem;" enctype="multipart/form-data">
+        <center style="margin-bottom: 20px;color: rgb(241, 225, 0);font-size: x-large;"><b>Book Details</b> </center>
+        <div class="form-group">
+            <label >Title of the book</label>
+            <input type="text" placeholder="Name of the book" id="name" class="form-control" value="<%=book.title%>" name="title">
+            <p id="nameErr"></p>
+        </div>
+  
+        <div class="form-group">
+            <label >Name of the Author</label>
+            <input type="text" placeholder="Author name" id="genre" class="form-control" value="<%=book.author%>" name="author" >
+            <p id="genreErr"></p>
+        </div>
+        <!-- <div class="form-group">
+            <label >Genre</label>
+            <input type="text" placeholder="Type Genre" id="title" class="form-control"  >
+            <p id="genreErr"></p>
+        </div>
+         -->
+        <div class="form-group">
+            <label >Genre</label>
+            <input type="text" placeholder="Book Genre"  id="book1" class="form-control" accept="text" value="<%=book.genre%>" name="genre" >
+            <p id="book1Err"></p>
+            <!-- <input name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" /> -->
+  
+       
+    </div>
+        <div class="form-group">
+            <label >Image</label>
+            <input type="file"  id="file" class="form-control" onchange="showFiles()" accept="image/*" value="<%=book.image%>" name="image">
+            <p id="imgErr"></p>
+        </div>
+        <button id="submit" class="btn btn-primary btn-block"> ADD BOOK</button>
+</form>
+<br>
+<br>
+
+      <!--/stories-->
+
+
+     
+
+
+
+
+<footer style="margin-top: 30rem;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Developed <i class="icon-heart-empty"></i> by <a href="https://www.linkedin.com/in/akhiljptvm/">AKHIL JP</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- bootstrap -->
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+     <script>
+     const hamburger = document.querySelector(".hamburger");
+     const navLinks = document.querySelector(".nav-links");
+     const links = document.querySelectorAll(".nav-links li");
+
+ hamburger.addEventListener('click', ()=>{
+   //Animate Links
+    navLinks.classList.toggle("open");
+    links.forEach(link => {
+        link.classList.toggle("fade");
+    });
+
+    //Hamburger Animation
+    hamburger.classList.toggle("toggle");
+});
+    </script>
+    <!-- form validation -->
+   
+   <script>
+
+    
+           function printError(elemId, hintMsg,elemId2) {
+                     document.getElementById(elemId).innerHTML = hintMsg;
+                     elemId2.style.border="solid 2px red";
+        }
+        
+        
+        function printNError(elemId, hintMsg,elemId2) {
+                     document.getElementById(elemId).innerHTML = hintMsg;
+                     elemId2.style.border="solid 2px green";
+        }  
+            
+              
+        function validate(){
+         
+            var nameV= document.getElementById("name");
+            var genreV=document.getElementById("genre");
+            var book1V=document.getElementById("book1");
+            var imgV=document.getElementById("file");
+                 
+             var name=nameV.value.trim();  
+             var book1=book1V.value.trim();
+             var genre=genreV.value.trim();;
+             var img=imgV.value;
+             var nameErr = book1Err = genreErr = imgErr= true;
+             
+          
+              if(name == "") {
+              printError("nameErr", "Enter book title",nameV);
+                } else {
+              
+                  printNError("nameErr", "",nameV);
+                  nameErr = false;
+                }
+        
+        
+        
+               if(book1 == "") {
+              printError("book1Err", "Enter the Genre",book1V);
+              } else {
+             
+                  printNError("book1Err", "",book1V);
+                  book1Err = false;
+              }
+
+        //       if(title1 == "") {
+        //       printError("titleErr", "Enter the title",title);
+        //   } else {
+              
+        //           printNError("titleErr", "",title);
+        //           titleErr = false;
+        //       }
+        
+              if(img == "") {
+              printError("imgErr", "Chose the image",imgV);
+          } else {
+              
+                  printNError("imgErr", "",imgV);
+                  imgErr = false;
+              }
+            
+        
+        
+             
+        
+        
+          
+        
+          if(genre == "") {
+              printError("genreErr", "Enter the Author",genreV);
+          } else {
+              
+                  printNError("genreErr", "",genreV);
+                  genreErr = false;
+              }
+        
+              if(img == "") {
+              printError("imgErr", "Chose the image",imgV);
+          } else {
+              
+                  printNError("imgErr", "",imgV);
+                  imgErr = false;
+              }
+            
+        
+        
+        
+             
+        
+          
+        
+        
+        
+        
+          if((nameErr || book1Err || genreErr || imgErr) == true) {
+             return false;
+          } else {
+              // Creating a string from input data for preview
+              var dataPreview = "You've entered the following details: \n" +
+                                "title: " + title + "\n" +
+                                "author: " + author + "\n" ;
+             
+              // Display input data in a dialog box before submitting the form
+              alert(dataPreview);
+              
+          
+               }
+        }
+        
+        
+                  
+              
+                   
+                      
+           </script>
+	</body>
+</html>

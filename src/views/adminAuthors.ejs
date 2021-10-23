@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>
+    <%=title%>
+  </title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/adminauthor2.css">
+  <link rel="stylesheet" href="/css/adminAuthor.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body background="/images/glenn2.jpg">
+
+  <!-- new nav -->
+  <nav>
+    <div class="logo">
+      <img src="/images/Ybin.gif" alt="Logo Image">
+      <a href="/">
+        <h1 class="libhead">Library App</h1>
+      </a>
+    </div>
+    <div class="hamburger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+    <ul class="nav-links">
+      <!-- <li ><a href="/" class="login-button">Home</a></li> -->
+      <li><a href="/adminlogin/add" class="login-button">
+          <%=nav[0].name%>
+        </a></li>
+      <li><a href="<%=nav[3].link%>" class="login-button">
+          <%=nav[3].name%>
+        </a></li>
+      <li><a href="/adminlogin/addauthor" class="join-button">
+          <%=nav[4].name%>
+        </a></li>
+      <li><a href="<%=nav[5].link%>" class="login-button">
+          <%=nav[5].name%>
+        </a></li>
+      <li><a href="<%=nav[8].link%>" class="login-button">
+          <%=nav[8].name%>
+        </a></li>
+
+
+    </ul>
+
+  </nav>
+  <!-- new nav end -->
+
+
+
+  <div id="masthead" class="p-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1>Authors
+            <p class="lead"></p>
+          </h1>
+        </div>
+        <div class="col-md-5">
+          <div class="">
+            <div class="row">
+              <div class="col-sm-12">
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /cont -->
+
+  </div>
+
+  <%for (i=0;i<authors.length;i++){%>
+    <div class="blog-post">
+
+      <div class="blog-post__img"><img src="/images/<%=authors[i].image%>" alt="" /></div>
+      <div class="blog-post__info">
+        <div class="blog-post__date"><span class="head1">
+            <%=authors[i].name%>
+          </span><span>
+            <%=authors[i].genre%>
+          </span></div>
+
+        <h1 class="blog-post__title">
+          <%=authors[i].book%>
+        </h1>
+        <p class="blog-post__text">
+          <%=authors[i].shortdis%>
+
+
+        <!-- delete -->
+        <div id="deletemod">
+          <button onclick="document.getElementById('id01').style.display='block'" class="btnmain"><i
+              class="fas fa-edit"></i>&nbsp;Delete</button>
+
+          <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal">×</span>
+            <form class="modal-content" action="/action_page.php">
+              <div class="container">
+                <h1>Delete Book</h1>
+                <p>Are you sure you want to delete the book?</p>
+
+                <div class="clearfix">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn ">Cancel</button>
+
+                  <a href="/adminlogin/deleteAuthor/<%=authors[i]._id%>"><button type="button"
+                      onclick="document.getElementById('id01').style.display='none'"
+                      class="deletebtn">Delete</button></a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--delete end  -->
+
+        <!-- update -->
+        <div id="deletemod">
+          <a href="/adminlogin/updateAuthor/<%=authors[i]._id%>"><button style="background-color: green;" class="btnmain"><i
+                class="fas fa-trash">&nbsp;</i>Update</button></a>
+
+        </div>
+        <!--update end  -->
+
+
+
+        </p><a class="blog-post__cta" href="/Author/<%=authors[i]._id%>">READ MORE</a>
+      </div>
+
+    </div>
+    <br>
+    <%}%>
+
+
+
+      <footer style="margin-top: 30rem;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <ul class="list-inline">
+                <li><i class="icon-facebook icon-2x"></i></li>
+                <li><i class="icon-twitter icon-2x"></i></li>
+                <li><i class="icon-google-plus icon-2x"></i></li>
+                <li><i class="icon-pinterest icon-2x"></i></li>
+              </ul>
+
+            </div>
+            <div class="col-sm-6">
+              <p class="pull-right">Developed <i class="icon-heart-empty"></i> by <a
+                  href="https://www.linkedin.com/in/akhiljptvm/">AKHIL JP</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- script references -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const links = document.querySelectorAll(".nav-links li");
+
+        hamburger.addEventListener('click', () => {
+          //Animate Links
+          navLinks.classList.toggle("open");
+          links.forEach(link => {
+            link.classList.toggle("fade");
+          });
+
+          //Hamburger Animation
+          hamburger.classList.toggle("toggle");
+        });
+      </script>
+</body>
+
+</html>
